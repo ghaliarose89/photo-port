@@ -1,9 +1,9 @@
+import React, { useState } from 'react';
+import Nav from './components/Nav';
+import About from './components/About';
+import ContactForm from './components/Contact'
+import Gallery from './components/Gallery';
 
-import './App.css';
-import React ,{ useState } from 'react';
-import Nav from './components/Nav/Nav';
-import About from './components/About/About';
-import Gallery from "./components/Gallery/Gallery";
 function App() {
   const [categories] = useState([
     {
@@ -16,21 +16,20 @@ function App() {
   ]);
 
   const [currentCategory, setCurrentCategory] = useState(categories[0]);
+
   return (
-    
-      <div>
-        <Nav 
-        categories = {categories}
-        setCurrentCategory = {setCurrentCategory}
+    <div>
+      <Nav
+        categories={categories}
+        setCurrentCategory={setCurrentCategory}
         currentCategory={currentCategory}
-        ></Nav>
-       
-        <main>
-        <Gallery></Gallery>
-          <About></About>
-        </main>
-      </div>
-   
+      ></Nav>
+      <main>
+        <ContactForm></ContactForm>
+        <Gallery currentCategory={currentCategory}></Gallery>
+        <About></About>
+      </main>
+    </div>
   );
 }
 
